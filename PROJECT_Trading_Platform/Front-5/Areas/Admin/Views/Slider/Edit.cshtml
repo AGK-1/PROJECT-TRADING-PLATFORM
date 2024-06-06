@@ -1,0 +1,65 @@
+﻿@model Slider;
+
+
+<div class="form-container">
+    <form method="post" id="form" asp-area="admin" asp-controller="slider" asp-action="Edit" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Text">Text:</label>
+            <input type="text" id="Text" name="text2" asp-for="text2">
+        </div>
+
+        <div class="form-group">
+            <label for="Sekil">Picture:</label>
+            <input type="file" id="Sekil" name="file" asp-for="file">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+</div>
+
+<style>
+
+    /* Form container styling */
+    .form-container {
+        max-width: 600px;
+        margin:35px;
+        padding: 35px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: #f9f9f9;
+    }
+
+    /* Form element styling */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="file"],
+        .form-group input[type="submit"],
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b9;
+        }
+
+</style>

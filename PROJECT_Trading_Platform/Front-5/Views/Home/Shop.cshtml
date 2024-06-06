@@ -1,0 +1,701 @@
+﻿
+@* @model List<Sport_pro>; *@
+@using X.PagedList.Mvc.Core
+@model IPagedList<Sport_pro>
+@using X.PagedList;
+
+<link rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<div class="page-layout" data-background="/assets/img/slider/shop.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-area text-center">
+                    <h2 class="page-title">shop</h2>
+                    <div class="breadcrumb-menu">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+<!-- shop page start -->
+<div class="shop-page pt-85">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-12">
+                <div class="sidebar">
+                    <div class="product-widget">
+                        <h3 class="widget-title mb-30">Product categories</h3>
+                        <ul class="product-categories">
+                            @* @foreach(var item in ViewBag.Categories)
+                            {
+                                <li><a asp-controller="Home" asp-action="Select_category" asp-route-id="@item.Id">@item.Name<span>(5)</span></a></li>
+                            } *@
+                            @foreach (var item in ViewBag.Categories)
+                            {
+                                int categoryCount = ViewBag.CategoryCounts.ContainsKey(item.Id) ? ViewBag.CategoryCounts[item.Id] : 0;
+                                <li><a asp-controller="Home" style="font-size:25px;" asp-action="Select_category" asp-route-id="@item.Id">@item.Name<span style="color:red">(@categoryCount)</span></a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="product-widget pt-50">
+                        <h3 class="widget-title mb-30">Filter By Price</h3>
+                        <hr>
+                        <form asp-action="Filterprice" method="get">
+                            <div class="price-filter">
+                                <div>
+                                    <input type="number" id="minPrice" name="min" placeholder="Min price" />
+                                    <label for="minPrice">Min</label>
+                                </div>
+                                <br />
+                                <div>
+                                    <input type="number" id="maxPrice" name="max" placeholder="Max price" />
+                                    <label for="maxPrice">Max</label>
+                                </div>
+                            </div>
+                            <div class="filter-form-submit mt-35">
+                                <button type="submit">Filter</button>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
+                    <div class="product-widget pt-50">
+                        <h3 class="widget-title mb-30">Size</h3>
+                        <div class="layer-size">
+                            <span>3XL</span>
+                            <span>L</span>
+                            <span>M</span>
+                        </div>
+                    </div>
+                    <div class="product-widget pt-50">
+                        <h3 class="widget-title mb-30">Color Options</h3>
+                        <div class="colors-layer">
+                            @foreach (var item in ViewBag.Color)
+                            {
+                                if (item.color == "Red")
+                                {                                 
+                                    <a asp-controller="Home" asp-action="Select_color" asp-route-id="@item.Id"><span class="red"></span></a>                               
+                                }
+                                if (item.color == "Yellow")
+                                {
+                                    <a asp-controller="Home" asp-action="Select_color" asp-route-id="@item.Id"><span class="yellow"></span></a>
+                                }
+                                if (item.color == "Blue")
+                                {
+                                    <a asp-controller="Home" asp-action="Select_color" asp-route-id="@item.Id"><span class="blue"></span></a>
+                                }
+                                if (item.color == "Skyblue")
+                                {
+                                    <a asp-controller="Home" asp-action="Select_color" asp-route-id="@item.Id"><span class="skyblue"></span></a>
+                                }
+                                if (item.color == "Gray")
+                                {
+                                    <a asp-controller="Home" asp-action="Select_color" asp-route-id="@item.Id"><span class="gray"></span></a>
+                                }
+                            }
+                          @*   <a href="shop.html"><span class="blue"></span></a>
+                            <a href="shop.html"><span class="gray"></span></a>
+                            <a href="shop.html"><span class="skyblue"></span></a>
+                            <a href="shop.html"><span class="red"></span></a>
+                            <a href="shop.html"><span class="yellow"></span></a> *@
+                        </div>
+                    </div>
+                    <div class="product_list_widget">
+                        <h3 class="widget-title mb-30 pt-50">Top rated</h3>
+                        <div class="pragmatik">
+                            <div class="swiper-container mySwiper">
+                                <div class="swiper-wrapper">
+                                   
+                                    @foreach (var item in ViewBag.Slider)
+                                    {
+                                        <div class="swiper-slide">
+                                            @item.text2
+                                            <img style="width:85%;height:90%;" src="~/assets/img/sliders_swipe/@item.picture" alt="Product Image" />
+                                        </div>
+                                    }
+                                  
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="product-widget pt-50">
+                        <h3 class="widget-title mb-30">Product tags</h3>
+                        <div class="tags mb-50">
+                             @foreach (var item in ViewBag.Categories)
+                            {
+                                <a asp-controller="Home" asp-action="Select_category" asp-route-id="@item.Id">@item.Name</a>                          
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-9 col-sm-12">
+                <div class="shop-top-bar position-relative">
+                    <div class="showing-result">
+                        <p> Showing all products</p>
+                    </div>
+                    <div class="shop-tab">
+                        <nav>
+                            <div class="nav nav-tabs shop-tabs" id="nav-tab" role="tablist">
+                                <button>
+                                    <span>views</span>
+                                </button>
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-selected="true">
+                                    <img src="~/assets/img/essential/i2.svg" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-selected="false">
+                                    <img src="~/assets/img/essential/i3.svg" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-selected="false">
+                                    <img src="~/assets/img/essential/i4.svg" alt="">
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="shop-filtaring">
+                        <div class="filter-select">
+                            <form asp-controller="Home" asp-action="Filter2" method="get">
+                                <select style="font-size:30px;border-radius:5px;cursor: pointer;" class="order-byy" name="categoryId">
+                                    @foreach (var category in ViewBag.Categories)
+                                    {
+                                        <option value="@category.Id" style="font-size:30px;">@category.Name</option>
+                                    }
+                                </select>
+                                <select style="font-size:30px;border-radius:5px;cursor: pointer;" class="order-byy" name="colorId">
+                                    @foreach (var color in ViewBag.Color)
+                                    {
+                                        <option value="@color.Id" style="font-size:30px;">@color.color</option>
+                                    }
+                                </select>
+                                <select style="font-size:30px;border-radius:5px;cursor: pointer;" class="order-byy" name="CategorytwoId">
+                                    @foreach (var ss in ViewBag.Category_two)
+                                    {
+                                        <option value="@ss.Id" style="font-size:30px;">@ss.Name</option>
+                                    }
+                                </select>
+                                <select style="font-size:30px;border-radius:5px;cursor: pointer;" class="order-byy" name="SizeId">
+                                    @foreach (var size in ViewBag.Size)
+                                    {
+                                        <option value="@size.Id" style="font-size:30px;">@size.name</option>
+                                    }
+                                </select>
+                                <button type="submit" style="font-size:20px;"class=" btn btn-primary open-filter">
+                                    <i style="font-size:15px;"class=" fal fa-plus"></i> Filter
+                                </button>
+                            </form>
+
+                            <div class="filter-content">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-3">
+                                        <div class="product-widget pt-50">
+                                            <h3 class="widget-title mb-30">color</h3>
+                                            <div class="colors-layer">
+                                                <a href="shop.html"><span class="blue"></span></a>
+                                                <a href="shop.html"><span class="gray"></span></a>
+                                                <a href="shop.html"><span class="skyblue"></span></a>
+                                                <a href="shop.html"><span class="red"></span></a>
+                                                <a href="shop.html"><span class="yellow"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3">
+                                        <div class="product-widget pt-50">
+                                            <h3 class="widget-title mb-30">Size</h3>
+                                            <div class="layer-size">
+                                                <span>3XL</span>
+                                                <span>L</span>
+                                                <span>M</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3">
+                                        <div class="product-widget pt-50">
+                                            <h3 class="widget-title mb-30">Filter By Price</h3>
+                                            <form action="#">
+                                                <div class="price-filter">
+                                                    <div id="slider-range-2" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 46.4%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 7.2%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 48.8%;"></span>
+                                                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 45%;"></div>
+                                                        <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 7.2%; width: 41.6%;"></div>
+                                                    </div>
+                                                    <div class="filter-form-submit mt-35">
+                                                        <button type="submit">Filter</button>
+                                                        <div class="filter-price d-inline-block pl-20">Price: <input type="button" id="amount-2" value="$36 - $244"></div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3">
+                                        <div class="product-widget pt-50">
+                                            <h3 class="widget-title mb-30">Product tags</h3>
+                                            <div class="tags mb-50">
+                                                <a href="shop.html">Basketball</a>
+                                                <a href="shop.html">Handbag</a>
+                                                <a href="shop.html">Jackets</a>
+                                                <a href="shop.html">Kids & Young</a>
+                                                <a href="shop.html">Training Wear</a>
+                                                <a href="shop.html">Women’s</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shop-page-product pt-50 pb-100">
+                    <div class="row">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="row">
+                        
+                                    @foreach (var item in Model)
+                        
+                                    {
+                                        <div class="col-xl-6">
+                                            <div class="product product-4">
+                                                <div class="product__thumb">
+                                                    <a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">
+                                                        <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                        <img class="product-secondary" src="~/assets/img/product/@item.photo2 alt="product_image">
+                                                    </a>
+                                                    <!-- <div class="product__update">
+                                                        <a class="#">new</a>
+                                                    </div> -->
+                                                    <div class="product-info mb-10">
+                                                        <div class="product_category">
+                                                            @if (item.Category != null)
+                                                            {
+                                                                <span>@item.Category.Name</span>
+                                                            }
+                                                            @if (item.Category_two != null)
+                                                            {
+                                                                <span>@item.Category_two.Name</span>
+                                                            }
+                                                        </div>
+                                                        <div class="product_rating">
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__name">
+                                                        <h4><a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">@item.name</a></h4>
+                                                        <div class="pro-price">
+                                                            <p class="p-absoulute pr-1"><span>$@item.price</span></p>
+                                                            <a class="p-absoulute pr-2" href="#" onclick="addto_cart(this);">add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__action">
+                                                        <div class="inner__action">
+                                                            <div class="wishlist">
+                                                                <a href="#"><i class="fal fa-heart"></i></a>
+                                                            </div>
+                                                            <div class="view">
+                                                                <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                            </div>
+                                                            <div class="layer">
+                                                                <a href="#">
+                                                                    <i class="fal fa-layer-group"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    @Html.PagedListPager(Model, page => Url.Action("Shop", new { i = page }), new PagedListRenderOptions
+                                         {
+                                             LiElementClasses = new[] { "page-item" },
+                                              PageClasses = new[] { "page-link" },
+                                             UlElementClasses = new[] { "pagination" }
+                                       })
+                                </div>
+                                @* <div class="pagination">
+                                    @Html.PagedListPager(Model, page => Url.Action("Shop", new { i = page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                                </div> *@
+                            </div>
+                            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-xl-4">
+                                            <div class="product product-4">
+                                                <div class="product__thumb">
+
+                                                    <a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id"> 
+                                                        <img class="product-primary" style="width:250px;height:250px;" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                        <img class="product-secondary" style="width:250px;height:250px;" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                    </a>
+                                                    <!-- <div class="product__update">
+                                                        <a class="#">new</a>
+                                                    </div> -->
+                                                    <div class="product-info mb-10">
+                                                        <div class="product_category">
+                                                            <span>@item.Category.Name</span><br>
+                                                            <span>@item.Category_two.Name</span>
+                                                        </div>
+                                                        <div class="product_rating">
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__name">
+                                                        <h4><a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">@item.name</a></h4>
+                                                        <div class="pro-price">
+                                                            <p class="p-absoulute pr-1"><span>$@item.price</span></p>
+                                                            <a class="p-absoulute pr-2" href="javascript:void(0);" onclick="addto_cart(this);">add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__action">
+                                                        <div class="inner__action">
+                                                            <div class="wishlist">
+                                                                <a href="#"><i class="fal fa-heart"></i></a>
+                                                            </div>
+                                                            <div class="view">
+                                                                <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                            </div>
+                                                            <div class="layer">
+                                                                <a href="#">
+                                                                    <i class="fal fa-layer-group"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                        
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    @Html.PagedListPager(Model, page => Url.Action("Shop", new { i = page }), new PagedListRenderOptions
+                                    {
+                                       LiElementClasses = new[] { "page-item" },
+                                       PageClasses = new[] { "page-link" },
+                                       UlElementClasses = new[] { "pagination" }
+                                    })
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="row">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-xl-3">
+                                            <div class="product product-3">
+                                                <div class="product__thumb">
+                                                    <a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">
+                                                        <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                        <img class="product-secondary" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                    </a>
+                                                    <!-- <div class="product__update">
+                                                        <a class="#">new</a>
+                                                    </div> -->
+                                                    <div class="product-info mb-10">
+                                                        <div class="product_category">
+                                                            <span>@item.Category.Name</span>
+                                                        </div>
+                                                        <div class="product_rating">
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                            <a href="#"><i class="fal fa-star"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__name">
+                                                        <h4><a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">@item.name</a></h4>
+                                                        <div class="pro-price">
+                                                            <p class="p-absoulute pr-1"><span>$@item.price</span></p>
+                                                            <a class="p-absoulute pr-2" href="#" onclick="addto_cart(this);">add to cart</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product__action">
+                                                        <div class="inner__action">
+                                                            <div class="wishlist">
+                                                                <a href="#"><i class="fal fa-heart"></i></a>
+                                                            </div>
+                                                            <div class="view">
+                                                                <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                            </div>
+                                                            <div class="layer">
+                                                                <a href="#">
+                                                                    <i class="fal fa-layer-group"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    @Html.PagedListPager(Model, page => Url.Action("Shop", new { i = page }), new PagedListRenderOptions
+                                      {
+                                           LiElementClasses = new[] { "page-item" },
+                                           PageClasses = new[] { "page-link" },
+                                           UlElementClasses = new[] { "pagination" }
+                                     })
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- shop page end -->
+<!-- search area  -->
+<div class="search_area">
+    <div class="search_close">
+        <span><i class="fal fa-times"></i></span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="search-wrapper text-center">
+                    <h2>search</h2>
+                    <div class="search-filtering pt-30">
+                        <div class="search_tab">
+                            <ul class="nav nav-tabs justify-content-center mb-55" id="fff" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab2" data-bs-toggle="tab"
+                                            data-bs-target="#home2" type="button" role="tab" aria-controls="home"
+                                            aria-selected="true">
+                                        All categories
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab2" data-bs-toggle="tab"
+                                            data-bs-target="#profile2" type="button" role="tab" aria-controls="profile"
+                                            aria-selected="false">
+                                        Basketball
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#contact2" type="button" role="tab" aria-controls="contact"
+                                            aria-selected="false">
+                                        Handbag
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="sportswear-tab" data-bs-toggle="tab"
+                                            data-bs-target="#sportswear" type="button" role="tab" aria-controls="sportswear"
+                                            aria-selected="false">
+                                        Sportswear
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="contact3-tab" data-bs-toggle="tab"
+                                            data-bs-target="#contact3" type="button" role="tab" aria-controls="contact2"
+                                            aria-selected="false">
+                                        Youth
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent2">
+                                <div class="tab-pane fade show active" id="home2" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="profile2" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="contact2" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="sportswear" role="tabpanel">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_search">
+                        <form action="#">
+                            <input type="text" name="search" placeholder="search products">
+                            <button class="m-search"><i class="fal fa-search d-sm-none d-md-block"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popup area start -->
+<div class="overlay"></div>
+<div class="product-popup">
+    <div class="view-background">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5">
+                <div class="quickview">
+                    <div class="quickview__thumb">
+                        <img src="~/assets/img/quick_view/25.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="viewcontent">
+                    <div class="viewcontent__header">
+                        <a href="single.html">
+                            <h2>Brown Leather Bags</h2>
+                        </a>                     
+                        <a class="view_close product-p-close" href="javascript:void(0)"><i class="fal fa-times-circle"></i></a>
+                    </div>
+                    <div class="viewcontent__rating">
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star"></i>
+                    </div>
+                    <div class="viewcontent__price">
+                        <h4><span>$</span>99.00</h4>
+                    </div>
+                    <div class="viewcontent__stock">
+                        <h4>Available :<span> In stock</span></h4>
+                    </div>
+                    <div class="viewcontent__details">
+                        <p>Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium risus lacinia vel. Fusce eget turpis orci.</p>
+                    </div>
+                    <div class="viewcontent__action">
+                        <span>Qty</span>
+                        <span><input type="number" placeholder="1"></span>
+                        <span><a href="#">add to cart</a></span>
+                        <span><i class="fal fa-heart"></i></span>
+                        <span><i class="fal fa-info-circle"></i></span>
+                    </div>
+                    <div class="viewcontent__footer">
+                        <ul>
+                            <li>Category:</li>
+                            <li>SKU:</li>
+                            <li>Brand:</li>
+                        </ul>
+                        <ul>
+                            <li>Watches</li>
+                            <li>2584-MK63</li>
+                            <li>Brenda</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- product popup -->
+<!-- popup area end -->
+<style>
+    .pagination {
+        margin-top: 35px;
+        font-size: 20px;
+    }
+
+    .pagination .page-item.active .page-link {
+            background-color: #222222;
+            border-color: black;
+     }
+
+    .pagination .page-link {
+            color: #222222;
+            margin: 10px;
+    }
+
+    .pagination .page-link:hover {
+                color: black;
+     }
+
+    .price-filter{
+        display:flex;
+    }
+
+    .price-filter label{
+       margin:10px;
+    }
+    input[type="number"] {
+        border-radius:5px;
+        font-size:30px;
+        height: 35px;
+        line-height: 35px;
+        width: 70px;
+        padding: 18px 0px 18px 0px;
+      
+
+        box-sizing: border-box;
+        -moz-appearance: textfield;
+        -webkit-appearance: textfield;
+        appearance: textfield;
+    }
+
+    hr {
+        border: 5px solid #b50707;
+        border-radius:3px;
+    }
+
+    .pragmatik{
+        position:relative;
+        height:300px;
+    }
+
+    .swiper-container {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+    }
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height:250px;
+    }
+
+</style>
+
+<script>
+    var min = document.getElementById("volume").value;
+    var max = document.getElementById("cowbell").value;
+    document.getElementById("amount").value = `$${min}  -   $${max}`;
+    document.getElementById("volume").addEventListener("input", function () {
+        min = this.value;
+        document.getElementById("amount").value = `$${min}  -   $${max}`;
+    });
+    document.getElementById("cowbell").addEventListener("input", function () {
+        max = this.value;
+        document.getElementById("amount").value = `$${min}  -   $${max}`;
+    });
+
+</script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="~/assets/js/svoy_3.js"></script>
+

@@ -1,0 +1,79 @@
+﻿<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<h1 style="color:green;margin:55px;font-size:150px">Success</h1>
+@Html.Raw(ViewBag.Script)
+<div class="f_cart_area pt-110 mb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12">
+                <div class="cart_table" id="formContainer">
+
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12">
+                <div class="cart__acount">
+                    <h5>Cart totals</h5>
+                    <table>
+                    
+ 
+                        <tr class="first-child">
+                            <td>Total</td>
+                            <td id="totalik" name="amount">$0.00</td>
+                            <td><p id="currentDateTime"></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="muxamor" method="post" asp-controller="home" asp-action="PostTableData" enctype="multipart/form-data">
+    <td><input class="stor" name="Name" value="Orders" /></td>
+    <td><textarea class="textdata" name="price"></textarea></td>
+    <input id="vaxt" name="Date" value="" />
+     <input type="submit" value="Add 777" />
+</form>
+<button id="zuba">Addwdwdw</button>
+<script>
+    var currentYear = new Date().getFullYear() + '-' + '0' + new Date().getMonth() + '-' + new Date().getDate() + ' ' + new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds();
+    document.getElementById('vaxt').value = currentYear;
+    var storageElement = document.querySelector(".cart_table");
+    var wordslocal = JSON.parse(localStorage.getItem('words'));
+    var existingData = localStorage.getItem('productObjects');
+    var productObjects = existingData ? JSON.parse(existingData) : [];
+    var dattaa = ""; // Initialize dattaa as an empty string
+    productObjects.forEach(function (object, index) {
+        document.querySelector('.textdata').value += object.ad + " " + object.qiymet; // Concatenate object.ad and object.qiymet// Concatenate object.ad to dattaa
+    });
+   
+//    console.log(dattaa);
+document.getElementById('muxamor').submit();
+// setTimeout(function () {
+//   document.getElementById('muxamor').submit();
+// }, 5000); 
+ 
+    document.getElementById('muxamor').style.display = 'none';
+    // function displayCurrentDateTime() {
+    //     var dt = new Date();
+    //     var year = dt.getFullYear();
+    //     var month = dt.getMonth() + 1; // Months are zero-based, so add 1
+    //     var day = dt.getDate();
+    //     var hour = dt.getHours();
+    //     var minute = dt.getMinutes();
+    //     var second = dt.getSeconds();
+
+    //     // Pad single digit month, day, minutes, and seconds with a leading zero
+    //     month = month < 10 ? '0' + month : month;
+    //     day = day < 10 ? '0' + day : day;
+    //     minute = minute < 10 ? '0' + minute : minute;
+    //     second = second < 10 ? '0' + second : second;
+    //     var formattedDateTime = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+    //     // var elements = document.getElementsByClassName('vaxt');
+    //     // for (var i = 0; i < elements.length; i++) {
+    //     //     elements[i].value = formattedDateTime;
+    //     // }
+    //     document.getElementById('vaxt').value = formattedDateTime;
+    // }
+
+</script>

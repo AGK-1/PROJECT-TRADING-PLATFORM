@@ -1,0 +1,186 @@
+﻿@model Front_5.Models.Twomodel;
+@using X.PagedList.Mvc.Core;
+@using Front_5.Utils;
+
+
+
+<div class="page-layout" data-background="/assets/img/slider/shop.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-area text-center">
+                    <h2 class="page-title">Blog</h2>
+                    <div class="breadcrumb-menu">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="blog-no-sidebar.html">sidebar</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+<!-- blog area start  -->
+
+<!-- blog area end  -->
+
+<div class="blog__area mb-100 pt-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-6 col-md-12">
+                <div class="bigpost-wrapper">
+                    @{
+                        var random = new Random();
+                        var shuffledList = Model.Stat.OrderBy(x => random.Next()).ToList();
+                    }
+                    @foreach (var item in Model.PagedStates)
+                    {
+                        // Optional: Sanitize the stat string if needed
+                        var sanitizedStat = StringSanitizer.SanitizeStat(item.stat);
+                        // Truncate to the first 12 characters
+                        var Statya= sanitizedStat.Length > 70 ? sanitizedStat.Substring(0, 70) : sanitizedStat;
+
+                        <div class="bigpost mb-40">
+                            <div class="bigpost__thumb">
+                                <img style="width:250px;height:150px" src="~/assets/img/blog/@item.sekil" alt="">
+                            </div>
+                            <div class="bigpost__content">
+                                <h4>Creative, Creative, graphy </h4>
+                                <h2 class="b-title mb-20"><a asp-controller="Home" asp-action="Blog_detail" asp-route-id="@item.Id">@item.ad</a></h2>
+                                <p>@Statya</p>
+                                <div class="post-meta pt-15">
+                                    <p>Post Date: <span> August 4, 2020 </span></p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="d-flex justify-content-center">
+                        @Html.PagedListPager(Model.PagedStates, page => Url.Action("Blog", new { i = page }), new PagedListRenderOptions
+                   {
+                       LiElementClasses = new[] { "page-item" },
+                       PageClasses = new[] { "page-link" },
+                       UlElementClasses = new[] { "pagination" }
+                   })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="sidebar__wrapper">
+                    <div class="mainBlog text-center mb-50">
+                        <div class="blog__widget">
+                            <div class="mainBlog__thumb">
+                                <img src="~/assets/img/blog/widget-blog.png" alt="">
+                            </div>
+                            <div class="mainBlog__content pt-10">
+                                <p>There are many variations of passages of<br> lorem ipsum available, but the majority have<br> suffered alteration in some form, by injected<br> humour or randomised words which don’t <br>look even slightly believable.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search__widget mb-35">
+                        <h4 class="mb-40 blog-s-title">Search</h4>
+                        <div class="custom-form">
+                            <form action="#" method="POST">
+                                <input type="text" placeholder="search . . .">
+                                <button type="submit"><i class="fal fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="common-widget mb-50">
+                        <h4 class="mb-40 blog-s-title">Popular Post</h4>
+                        <div class="singleBlog mb-30">
+                            <img src="~/assets/img/blog/@Model.Stat_t.sekil" alt="">
+                            <div class="singleBlog__content">
+                                <p>
+                                    @Model.Stat_t.ad
+                                </p>
+                                <span>August 4, 2020</span>
+                            </div>
+                        </div>
+                         @foreach (var item in shuffledList)
+                          {
+                            <div class="b_single pt-30 mb-20">
+                                <div class="b_single__thumb">
+                                    <img src="~/assets/img/blog/@item.sekil" alt="">
+                                </div>
+                                <div class="b_single__content">
+                                    <a asp-controller="Home" asp-action="Blog_detail" asp-route-id="@item.Id">@item.ad</a>
+                                    <span>August 4, 2020</span>
+                                </div>
+                            </div>
+                          }
+                    </div>
+                    <div class="common-widget mb-50">
+                        <h4 class="mb-40 blog-s-title">Categories</h4>
+                        <div class="blog-category">
+                            <ul>
+                                <li><a href="blog-right.html">creative<span>(5)</span></a></li>
+                                <li><a href="blog-right.html">image <span>(4)</span></a></li>
+                                <li><a href="blog-right.html">music<span>(2)</span></a></li>
+                                <li><a href="blog-right.html">travel<span>(5)</span></a></li>
+                                <li><a href="blog-right.html">uncategorized<span>(5)</span></a></li>
+                                <li><a href="blog-right.html">videos<span>(3)</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="common-widget newsletter mb-50">
+                        <h4 class="mb-20 blog-s-title">Join Our List</h4>
+                        <p>Subscribe to our newsletter and stay updated<br> to our best offers and deals!</p>
+                        <div class="newsletter">
+                            <form action="#">
+                                <input type="email" placeholder="subscribe our newsletter">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="common-widget padding-remove mb-50">
+                        <h4 class="mb-20 blog-s-title">Tag</h4>
+                        <div class="tags">
+                            <a href="blog.html">Basketball</a>
+                            <a href="blog.html">Handbag</a>
+                            <a href="blog.html">Jackets</a>
+                            <a href="blog.html">Kids &amp; Young</a>
+                            <a href="blog.html">Training Wear</a>
+                            <a href="blog.html">Women’s</a>
+                        </div>
+                    </div>
+                    <div class="common-widget instagram">
+                        <h4 class="mb-20 blog-s-title">Instagram</h4>
+                        <div class="instagram-images pt-20 text-center">
+                            <a class="popup-image" href="~/assets/img/blog/s1.jpg"><img src="~/assets/img/blog/s1.jpg" alt=""></a>
+                            <a class="popup-image" href="~/assets/img/blog/s2.jpg"><img src="~/assets/img/blog/s2.jpg" alt=""></a>
+                            <a class="popup-image" href="~/assets/img/blog/s3.jpg"><img src="~/assets/img/blog/s3.jpg" alt=""></a>
+                            <a class="popup-image" href="~/assets/img/blog/s4.jpg"><img src="~/assets/img/blog/s4.jpg" alt=""></a>
+                            <a class="popup-image" href="~/assets/img/blog/s5.jpg"><img src="~/assets/img/blog/s5.jpg" alt=""></a>
+                            <a class="popup-image" href="~/assets/img/blog/s6.jpg"><img src="~/assets/img/blog/s6.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .pagination {
+        margin-top: 35px;
+        font-size:20px;
+    }
+
+        .pagination .page-item.active .page-link {
+            background-color: #222222;
+            border-color: black;
+        }
+
+        .pagination .page-link {
+            color: #222222;
+            margin:10px;
+        }
+
+            .pagination .page-link:hover {
+                
+                color: black;
+            }
+</style>

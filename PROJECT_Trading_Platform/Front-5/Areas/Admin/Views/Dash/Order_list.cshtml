@@ -1,0 +1,37 @@
+﻿@model List<Orders>;
+<h3 style="margin:20px">Order list</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Order Description</th>
+            <th>Order Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.price</td>
+                <td>@item.Date</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    table {
+        width: 90%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #000; 
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

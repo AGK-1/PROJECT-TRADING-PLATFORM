@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|c:\\users\\wikto\\onedrive\\desktop\\lessone\\c-charpok\\front-5\\front-5\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\views\\home\\portfolio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\views\\home\\portfolio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\views\\home\\product_detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\views\\home\\product_detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\front-5\\areas\\admin\\controllers\\dashcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CA48C46-70E1-47ED-B347-AF9F0F580DD6}|Front-5\\Front-5.csproj|solutionrelative:front-5\\areas\\admin\\controllers\\dashcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Front-5\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Front-5\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAIgBAAAAAAAAAAAswJcBAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T23:12:35.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Front-5\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Front-5\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAewGQAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T21:31:53.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Front-5\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Front-5\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T20:38:32.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Portfolio.cshtml",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Portfolio.cshtml",
+              "RelativeDocumentMoniker": "Front-5\\Views\\Home\\Portfolio.cshtml",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Portfolio.cshtml",
+              "RelativeToolTip": "Front-5\\Views\\Home\\Portfolio.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T20:37:55.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product_detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Product_detail.cshtml",
+              "RelativeDocumentMoniker": "Front-5\\Views\\Home\\Product_detail.cshtml",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Product_detail.cshtml",
+              "RelativeToolTip": "Front-5\\Views\\Home\\Product_detail.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAawFEAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T17:29:53.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Shop.cshtml",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Shop.cshtml",
+              "RelativeDocumentMoniker": "Front-5\\Views\\Home\\Shop.cshtml",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Views\\Home\\Shop.cshtml",
+              "RelativeToolTip": "Front-5\\Views\\Home\\Shop.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAC4AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T17:29:23.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashController.cs",
+              "DocumentMoniker": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Areas\\Admin\\Controllers\\DashController.cs",
+              "RelativeDocumentMoniker": "Front-5\\Areas\\Admin\\Controllers\\DashController.cs",
+              "ToolTip": "C:\\Users\\wikto\\OneDrive\\Desktop\\lessone\\c-charpok\\Front-5\\Front-5\\Areas\\Admin\\Controllers\\DashController.cs",
+              "RelativeToolTip": "Front-5\\Areas\\Admin\\Controllers\\DashController.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAMwFYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-01T15:12:20.852Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+﻿@* @model state; *@
+@model Front_5.Models.Twomodel;
+<h2 style="margin-left:20px;">Add new blog</h2>
+<style>
+    .custom-border {
+        border: 3px solid #ccc; /* Example border style */
+        border-radius: 5px; /* Optional: Adds rounded corners */
+       
+    }
+</style>
+<div class="mb-2 m-5">
+    <form method="post" asp-area="admin" asp-controller="Dash" asp-action="addtoblog" enctype="multipart/form-data">
+        <label for="ad" class="form-label">Text Input:</label>
+        <input type="text" class="form-control form-control-lg border border-success" id="ad" name="ad" placeholder="Enter name" />
+
+        <label for="sekil" class="form-label mt-3">Select Image:</label>
+        <input type="file" class="form-control form-control-lg border border-success input-lg" id="sekil" name="file3" />
+
+        <label for="stat" class="form-label mt-3">Textarea:</label>
+        <textarea class="form-control form-control-lg border border-success input-lg" id="stat" name="stat" rows="3" placeholder="Add blog"></textarea>
+
+        <button type="submit" class="btn btn-primary mt-3">Add</button>
+    </form>
+
+
+    <ul>
+        @foreach (var state in Model.Stat) @* asp-action = "delete_blog asp-route-id="@state.Id"" *@
+        {
+            <li><h5>@state.ad<a href="#" onclick="confirmDelete(@state.Id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete this blog</a></h5></li>
+        }
+    </ul>
+</div>
+<script>
+    function confirmDelete(itemId) {
+        Swal.fire({
+            title: 'Bu bloqu silmek istediyirsiniz ?',
+            text: 'Silindikden sonra geri qaytara bilmeyeceksiz!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Beli, sil!',
+            cancelButtonText: 'Xeyr, emin deyilem!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If user confirms, redirect to the delete action URL
+                window.location.href = '/Admin/Dash/delete_blog/' + itemId;
+            } else {
+                // If user cancels, do nothing
+            }
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

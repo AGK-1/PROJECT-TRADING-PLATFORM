@@ -1,0 +1,130 @@
+﻿@model LoginVM
+<div class="search_area">
+    <div class="search_close">
+        <span><i class="fal fa-times"></i></span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="search-wrapper text-center">
+                    <h2>search</h2>
+                    <div class="search-filtering pt-30">
+                        <div class="search_tab">
+                            <ul class="nav nav-tabs justify-content-center mb-55" id="myTab2" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="select11" data-bs-toggle="tab"
+                                            data-bs-target="#select1" type="button" role="tab"
+                                            aria-selected="true">
+                                        All categories
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="select22" data-bs-toggle="tab"
+                                            data-bs-target="#select2" type="button" role="tab"
+                                            aria-selected="false">
+                                        Basketball
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#select3" type="button" role="tab"
+                                            aria-selected="false" id="select33">
+                                        Handbag
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="select44" data-bs-toggle="tab"
+                                            data-bs-target="#select4" type="button" role="tab"
+                                            aria-selected="false">
+                                        Sportswear
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="select55" data-bs-toggle="tab"
+                                            data-bs-target="#contact3" type="button" role="tab"
+                                            aria-selected="false">
+                                        Youth
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent2">
+                                <div class="tab-pane fade show active" id="select1" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="select2" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="select3" role="tabpanel">
+                                </div>
+                                <div class="tab-pane fade" id="select4" role="tabpanel">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_search">
+                        <form action="#">
+                            <input type="text" name="search" placeholder="search products">
+                            <button class="m-search"><i class="fal fa-search d-sm-none d-md-block"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area start -->
+<div class="page-layout about" data-background="/assets/img/slider/shop.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-area text-center">
+                    <h2 class="page-title">My account</h2>
+                    <div class="breadcrumb-menu">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="login.html">My account</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+
+<div class="login_register_area" id="Loggino">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 offset-xl-1">
+                <h3 class="title-7">Login</h3>
+                <div class="login_wrapper">
+                    <form asp-controller="Akaunt" asp-action="Login" method="post">
+                        <div class="input_wrap">
+                            <label>Email<span>*</span></label>
+                            <input type="text" name="Email">
+                            <span style="color:red" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <label>Password<span>*</span></label>
+                            <input type="pass" name="Password">
+                            <span style="color:red" asp-validation-for="Password"></span>
+                            <span class="show-pass"><i class="far fa-eye-slash"></i></span>
+                        </div>
+                        <div class="input_wrapp-2">
+                            <input type="checkbox" name="Isremember">
+                            <span>Remember me </span>
+                        </div>
+                        <div class="input_wrap">
+                            <button type="submit">log in</button>
+                        </div>
+                       
+                    </form>
+                    <div class="input_wrap">
+                        <a asp-controller="Akaunt" asp-action="Register">Or register</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

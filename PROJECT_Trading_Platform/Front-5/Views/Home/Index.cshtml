@@ -1,0 +1,733 @@
+﻿@model Twomodel
+
+
+@* @foreach (var item in ViewBag.Categories_two.Name="Mens")
+{
+    <ul>
+        <li>Hellosinko222pooooooooo @item.photo1</li>
+        <li>@item.Id</li>
+    </ul>
+}  *@
+@* @foreach (var item in ViewBag.MensSportPros)
+{
+    <ul>
+        <li>Hellosinko5555 @item.photo1</li>
+        <li>@item.name</li>
+    </ul>
+} *@
+<style>
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin-bottom:55px;
+        margin-top:55px;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+</style>
+
+<link rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+<div class="swiper-container mySwiper">
+    <div class="swiper-wrapper">
+        @foreach (var item in Model.Slider_L)
+        {
+            <div class="swiper-slide">
+                @item.text2
+                <img style="width:85%;height:90%;" src="~/assets/img/sliders_swipe/@item.picture" alt="Product Image" />
+            </div>
+        }
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<hr style="color:red;height:12px">
+<!-- slider end -->
+<!-- features area start  -->
+<div class="features-area d-none d-md-block fix">
+    <div class="row g-0">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="fetures">
+                <div class="fetures__thumb fix">
+                    <a href="shop.html"><img src="~/assets/img/features/fe1.png" alt="features1"></a>
+                </div>
+                <div class="fetures__content">
+                    <h4 class="feature-title mb-40">Sport<br> Baseball</h4>
+                    <p class="d-md-none d-lg-block">
+                        all products <span class="discount">
+                            <a href="#">
+                                up to 70%
+                                off
+                            </a>
+                        </span> limited time discount
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="fetures">
+                <div class="fetures__thumb fix">
+                    <a href="shop.html"><img src="~/assets/img/features/banner-home2.jpg" alt="features1"></a>
+                </div>
+                <div class="fetures__content pt-200">
+                    <p class="d-md-none d-lg-block">Gota store with a tool that makes design simple for everyone</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <div class="fetures">
+                <div class="fetures__thumb fix">
+                    <a href="shop.html"><img src="~/assets/img/features/fe3.png" alt="features1"></a>
+                </div>
+                <div class="fetures__content">
+                    <h4 class="feature-title mb-40">Jacket<br>For women’s</h4>
+                    <p class="d-md-none d-lg-block">
+                        all products <span class="discount">
+                            <a href="#">
+                                up to 70%
+                                off
+                            </a>
+                        </span> limited time discount
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- features area end  -->
+<!-- categories area start -->
+<div class="categories_area pt-85 mb-150">
+    <div class="container-fluid">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="section-wrapper text-center mb-35">
+                <h2 class="section-title">Explore Our Bestsellers</h2>
+                <p>Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis<br> eget maecenas sed urna malesuada.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="categories__tab">
+                    <ul class="nav nav-tabs justify-content-center mb-55" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-selected="true">All SHoes</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-selected="false">Men’s</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-selected="false">WoMen’s</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#kidss" type="button" role="tab" aria-selected="false">Kids</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home">
+                            <div class="container">
+                                <div class="product-active h-2-product-active swiper-container">
+                                    <div class="swiper-wrapper">
+                                        
+                                        
+                                        
+
+                                        @foreach (var item in Model.Card)  @*  .Where(c => !c.Ischeck) *@
+                                        {
+                                            <div class="product-item swiper-slide wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+                                                <div class="product">
+                                                    <div class="product__thumb">
+                                                        <a asp-controller="Home" asp-action="Product_detail" asp-route-id="@item.Id">
+                                                            <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                            <img class="product-secondary" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                        </a>
+                                                        <div class="product__update">
+                                                            <a class="#">new</a>
+                                                        </div>
+                                                        <div class="product-info mb-10">
+                                                            <div class="product_category">
+                                                                <span>Shoes, Clothing</span>
+                                                            </div>
+                                                            <div class="product_rating">
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__name">
+                                                            <h4><a href="shop.html">@item.name</a></h4>
+                                                            <div class="pro-price">
+                                                                <p class="p-absoulute pr-1"><span>$@item.price</span><span></span></p>
+                                                                <a class="p-absoulute pr-2" href="#" onclick="addto_cart(this);">add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__action">
+                                                            <div class="inner__action">
+                                                                <div class="wishlist">
+                                                                    <a href="#"><i class="fal fa-heart"></i></a>
+                                                                </div>
+                                                                <div class="view">
+                                                                    <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                                </div>
+                                                                <div class="layer">
+                                                                    <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile">
+                            <div class="container">
+                                <div class="product-active swiper-container">
+                                    <div class="swiper-wrapper">
+                                        @foreach (var item in ViewBag.MensSportPros)
+                                        {
+                                         @*  @if (item.Category != null && item.Category.Name == "Shoes")
+                                            { *@
+                                                
+                                            
+                                            <div class="product-item swiper-slide">
+
+                                                <div class="product">
+                                                    <div class="product__thumb">
+                                                        <a href="single.html">
+                                                            <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                            <img class="product-secondary" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                        </a>
+                                                        <div class="product__update">
+                                                            <a class="#">new</a>
+                                                        </div>
+                                                        <div class="product-info mb-10">
+                                                            <div class="product_category">
+                                                              
+                                                                <span>Mens @item.name</span>
+                                                               @*  @if (item.Category != null)
+                                                                {
+                                                                    <span>Mens @item.Name</span>
+                                                                } *@
+                                                            </div>
+                                                            <div class="product_rating text-end">
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__name">
+                                                            <h4><a href="single.html">@item.name</a></h4>
+                                                            <div class="pro-price">
+                                                                <p class="p-absoulute pr-1"><span>$@item.price</span><span></span></p>
+                                                                <a class="p-absoulute pr-2" onclick="addto_cart(this);" href="#">add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__action">
+                                                            <div class="inner__action">
+                                                                <div class="wishlist">
+                                                                    <a href="#"><i class="fal fa-heart"></i></a>
+                                                                </div>
+                                                                <div class="view">
+                                                                    <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                                </div>
+                                                                <div class="layer">
+                                                                    <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="contact">
+                            <div class="container">
+                                <div class="product-active h-2-product-active swiper-container">
+                                    <div class="swiper-wrapper">
+                                        @foreach (var item in ViewBag.WomensSportPros)
+                                        {
+                                            <div class="product-item swiper-slide">
+                                                <div class="product">
+                                                    <div class="product__thumb">
+                                                        <a href="single.html">
+                                                            <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                            <img class="product-secondary" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                        </a>
+                                                        <!-- <div class="product__update">
+                                                        <a class="#">new</a>
+                                                        </div> -->
+                                                        <div class="product-info mb-10">
+                                                            <div class="product_category">
+                                                                <span>@item.name</span>
+                                                            </div>
+                                                            <div class="product_rating">
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__name">
+                                                            <h4><a href="shop.html">Women's 2021 new balance heel </a></h4>
+                                                            <div class="pro-price">
+                                                                <p class="p-absoulute pr-1"><span>$@item.price</span><span></span></p>
+                                                                <a class="p-absoulute pr-2" onclick="addto_cart(this);" href="#">add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__action">
+                                                            <div class="inner__action">
+                                                                <div class="wishlist">
+                                                                    <a href="#"><i class="fal fa-heart"></i></a>
+                                                                </div>
+                                                                <div class="view">
+                                                                    <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                                </div>
+                                                                <div class="layer">
+                                                                    <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="kidss">
+                            <div class="container">
+                                <div class="product-active swiper-container">
+                                    <div class="swiper-wrapper">
+                                        @foreach (var item in ViewBag.KidsSportPros)
+                                        {
+                                            <div class="product-item swiper-slide">
+                                                <div class="product">
+                                                    <div class="product__thumb">
+                                                        <a href="single.html">
+                                                            <img class="product-primary" src="~/assets/img/product/@item.photo1" alt="product_image">
+                                                            <img class="product-secondary" src="~/assets/img/product/@item.photo2" alt="product_image">
+                                                        </a>
+                                                        <div class="product__update">
+                                                            <a class="#">new</a>
+                                                        </div>
+                                                        <div class="product-info mb-10">
+                                                            <div class="product_category">
+                                                                <span>@item.name</span>
+                                                            </div>
+                                                            <div class="product_rating text-end">
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                                <a href="#"><i class="fal fa-star"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__name">
+                                                            <h4><a href="single.html">@item.name </a></h4>
+                                                            <div class="pro-price">
+                                                                <p class="p-absoulute pr-1"><span>$@item.price</span><span></span></p>
+                                                                <a class="p-absoulute pr-2" onclick="addto_cart(this);" href="#">add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product__action">
+                                                            <div class="inner__action">
+                                                                <div class="wishlist">
+                                                                    <a href="#"><i class="fal fa-heart"></i></a>
+                                                                </div>
+                                                                <div class="view">
+                                                                    <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                                </div>
+                                                                <div class="layer">
+                                                                    <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- categories area end -->
+<!-- product show case area start  -->
+<div class="show-case lightblue pt-125">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="section-wrapper text-center mb-35">
+                    <h4 class="sub-title">Bestseller products</h4>
+                    <h2 class="section-title text-white">Nike Air Force 1 Sage Low LX</h2>
+                    <p class="d-none d-lg-block">
+                        Commodo sociosqu venenatis cras dolor sagittis integer luctus sem
+                        primis<br> eget maecenas sed urna malesuada.
+                    </p>
+                </div>
+            </div>
+            <div class="case-info text-center">
+                <span class="offer-text d-none d-lg-block">hot deal<i class="far fa-stars"></i></span>
+                <h2 class="back1-text d-none d-lg-block">Expert</h2>
+                <h2 class="back-text d-none d-lg-block">limited</h2>
+                <img class="banar-product" style="height:320px;width:800px;"src="~/assets/img/logo/tranparent.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- product show case area end  -->
+<!-- new product area start -->
+<div class="new_product_area mb-80">
+    <div class="container-fluid">
+        <div class="row">
+
+            @{
+                var rng = new Random();
+               // var shuffledList = Model.Card.OrderBy(x => rng.Next()).ToList();
+                var shuffledList = Model.Card.OrderBy(x => rng.Next()).Take(3).ToList();
+                var shuffledList_2 = Model.Card.OrderBy(x => rng.Next()).Take(3).ToList();
+            }
+            @*  @foreach (var item in shuffledList)
+            { *@
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="section-wrapper text-center mb-35">
+                            <h2 class="section-title"><a href="#">Explore Our New arrivals</a></h2>
+                            <p>
+                                1 Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis<br> eget
+                                maecenas sed urna malesuada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="product-active2 swiper-container">
+                       
+                        <div class="swiper-wrapper">
+                            @foreach (var item in shuffledList)
+                            {
+                            <div class="product-item swiper-slide  wow fadeInLeft " data-wow-duration=".9s" data-wow-delay=".3s">
+                                <div class="product product-2">
+
+                                        <div class="product__thumb">
+                                            <a href="single.html">
+                                                <img class="product-primary" src="~/assets/img/product/@item.photo1"
+                                                alt="product_image">
+                                                <img class="product-secondary" src="~/assets/img/product/@item.photo2"
+                                                alt="product_image">
+                                            </a>
+                                            <!-- <div class="product__update">
+                                            <a class="#">new</a>
+                                            </div> -->
+                                            <div class="product-info mb-10">
+                                                <div class="product_category">
+                                                    <span>Shoes, Clothing</span>
+                                                </div>
+                                                <div class="product_rating">
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star"></i></a>
+                                                    <a href="#"><i class="fal fa-star"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product__name">
+                                                <h4><a href="shop.html">@item.name</a></h4>
+                                                <div class="pro-price">
+                                                    <p class="p-absoulute pr-1">
+                                                        <span>$</span>180.00 -
+                                                        <span>$</span>280.00
+                                                    </p>
+                                                    <a class="p-absoulute pr-2" href="#">add to cart</a>
+                                                </div>
+                                            </div>
+                                            <div class="product__action">
+                                                <div class="inner__action">
+                                                    <div class="wishlist">
+                                                        <a href="#"><i class="fal fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="view">
+                                                        <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                    </div>
+                                                    <div class="layer">
+                                                        <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </div>
+                            </div>
+                            }
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 padding-left">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"></div>
+                <div class="section-wrapper text-center mb-35">
+                    <h2 class="section-title">Explore Our featured</h2>
+                    <p>
+                       2 Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis<br> eget maecenas
+                        sed urna malesuada.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="product-active2 swiper-container">
+                        <div class="swiper-wrapper">
+                            @foreach (var itemm in shuffledList_2)
+                            {
+                                <div class="product-item swiper-slide  wow fadeInLeft " data-wow-duration=".9s" data-wow-delay=".4s">
+                                    <div class="product product-2">
+                                        <div class="product__thumb">
+                                            <a href="single.html">
+                                                <img class="product-primary" src="~/assets/img/product/@itemm.photo1"
+                                                alt="product_image">
+                                                <img class="product-secondary" src="~/assets/img/product/@itemm.photo2"
+                                                alt="product_image">
+                                            </a>
+                                            <!-- <div class="product__update">
+                                            <a class="#">new</a>
+                                            </div> -->
+                                            <div class="product-info mb-10">
+                                                <div class="product_category">
+                                                    <span>Shoes, Clothing</span>
+                                                </div>
+                                                <div class="product_rating">
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star start-color"></i></a>
+                                                    <a href="#"><i class="fal fa-star"></i></a>
+                                                    <a href="#"><i class="fal fa-star"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="product__name">
+                                                <h4><a href="shop.html">@itemm.name </a></h4>
+                                                <div class="pro-price">
+                                                    <p class="p-absoulute pr-1">
+                                                        <span>$</span>680.00 -
+                                                        <span>$</span>680.00
+                                                    </p>
+                                                    <a class="p-absoulute pr-2" href="#">add to cart</a>
+                                                </div>
+                                            </div>
+                                            <div class="product__action">
+                                                <div class="inner__action">
+                                                    <div class="wishlist">
+                                                        <a href="#"><i class="fal fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="view">
+                                                        <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                                                    </div>
+                                                    <div class="layer">
+                                                        <a href="#"><i class="fal fa-layer-group"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- new product area end -->
+<!-- blog area start -->
+<div class="blog-area mb-100">
+    <div class="container">
+        <div class="section-wrapper text-center mb-35">
+            <h2 class="section-title"><a href="blog.html">from our blog</a></h2>
+            <p>Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis<br> eget maecenas sed urna malesuada.</p>
+        </div>
+        <div class="row">
+            
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="blog" style="background-image: url('assets/img/blog/@Model.Stat_t.sekil');">
+                        <div class="blog__content">
+                            <span class="mb-15">Blog</span>
+                        <h3 class="blog-title "><a asp-controller="Home" asp-action="Blog_detail" asp-route-id="@Model.Stat_t.Id">@Model.Stat_t.ad</a></h3>
+                            <p>By Erentheme /<span>September 16, 2019</span></p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                @foreach (var item in Model.Stat.Take(3))
+                {
+                    <div class="bpost">
+                        <div class="bpost__thumb">
+                            <img src="~/assets/img/blog/@item.sekil" alt="blog_post"width="150px">
+                        </div>
+                        <div class="bpost__content">
+                            <span>Shoes, Clothing</span>
+                            <h3 class="blog-title title-2"><a asp-controller="Home" asp-action="Blog_detail" asp-route-id="@item.Id">@item.ad</a></h3>
+                            <p>By <span>Erentheme </span>/September 16, 2019</p>
+                            <p>The perfect way to enjoy brewing tea on low hanging fruit to identify…</p>
+                        </div>
+                    </div>
+
+                }
+
+                </div>
+            
+        </div>
+    </div>
+</div>
+<!-- blog area end -->
+<!-- gallary area start  -->
+<div class="gallary_area">
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary6.jpg" alt="gallaryImage"></a>
+    </div>
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary1.jpg" alt="gallaryImage"></a>
+    </div>
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary2.jpg" alt="gallaryImage"></a>
+    </div>
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary3.jpg" alt="gallaryImage"></a>
+    </div>
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary4.jpg" alt="gallaryImage"></a>
+    </div>
+    <div class="gallary__thumb">
+        <a href="shop.html"><img src="~/assets/img/gallary/gallary5.jpg" alt="gallaryImage"></a>
+    </div>
+</div>
+<!-- gallary area end  -->
+<!-- popup area start -->
+<div class="overlay"></div>
+<div class="product-popup">
+    <div class="view-background">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5">
+                <div class="quickview">
+                    <div class="quickview__thumb">
+                        <img src="~/assets/img/quick_view/25.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="viewcontent">
+                    <div class="viewcontent__header">
+                        <h2>Brown Leather Bags</h2>
+                        <a class="view_close product-p-close" href="javascript:void(0)">
+                            <i class="fal fa-times-circle"></i>
+                        </a>
+                    </div>
+                    <div class="viewcontent__rating">
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star"></i>
+                    </div>
+                    <div class="viewcontent__price">
+                        <h4><span>$</span>99.00</h4>
+                    </div>
+                    <div class="viewcontent__stock">
+                        <h4>Available :<span> In stock</span></h4>
+                    </div>
+                    <div class="viewcontent__details">
+                        <p>
+                            Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium
+                            risus lacinia vel. Fusce eget turpis orci.
+                        </p>
+                    </div>
+                    <div class="viewcontent__action">
+                        <span>Qty</span>
+                        <span><input type="number" placeholder="1"></span>
+                        <span><a href="#">add to cart</a></span>
+                        <span><i class="fal fa-heart"></i></span>
+                        <span><i class="fal fa-info-circle"></i></span>
+                    </div>
+                    <div class="viewcontent__footer">
+                        <ul>
+                            <li>Category:</li>
+                            <li>SKU:</li>
+                            <li>Brand:</li>
+                        </ul>
+                        <ul>
+                            <li>Watches</li>
+                            <li>2584-MK63</li>
+                            <li>Brenda</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        autoplay: {
+            delay: 450, // Delay between transitions in milliseconds (2.5 seconds in this case)
+            disableOnInteraction: false,
+        },
+
+     
+    });
+
+</script>

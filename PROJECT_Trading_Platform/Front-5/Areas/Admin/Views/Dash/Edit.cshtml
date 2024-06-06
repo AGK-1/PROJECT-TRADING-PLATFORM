@@ -1,0 +1,90 @@
+﻿@model Sport_pro
+
+<form method="post" asp-area="admin" asp-controller="dash" asp-action="Edit" enctype="multipart/form-data" class="custom-form">
+    <label for="Text">Text:</label>
+    <input type="text" id="Text" asp-for="name" class="input-field"><br>
+
+    <label for="photo1">photo1</label>
+    <input type="file" id="photo1" asp-for="file1" class="input-field-file"><br>
+
+  
+        <label for="photo2">photo2</label>
+        <input type="file" id="photo2" asp-for="file2" class="input-field-file">
+
+        <br>
+
+    <label for="Images">Other pictures</label>
+    <input type="file" id="Images" asp-for="Images" class="input-field-file" multiple="multiple"><br>
+
+    <label for="price">Price</label>
+    <input type="text" id="price" asp-for="price" class="input-field"><br>
+
+    <select id="CategoryId" asp-for="CategoryId" class="select-field">
+
+        @foreach (var item in ViewBag.Categories)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <select id="CategorytwoId" class="select-field" asp-for="CategorytwoId">
+        @foreach (var item in ViewBag.Categories_two)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+
+    <select id="CategorytwoId" class="select-field" asp-for="ColorId">
+        @foreach (var item in ViewBag.Colors)
+        {
+            <option value="@item.Id">@item.color</option>
+        }
+    </select>
+    <select id="SizeId" class="select-field" asp-for="SizeId">
+        @foreach (var item in ViewBag.Size)
+        {
+            <option value="@item.Id">@item.name</option>
+        }
+    </select>
+    <input type="submit" class="submit-button">
+</form>
+
+<style>
+    .custom-form {
+        border: 2px solid #28a745; /* Green border */
+        padding: 20px;
+        width: 300px;
+        margin-left : 50px;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box; /* Make sure that padding and border are included in the width */
+    }
+
+    .input-field-file {
+        margin-bottom: 10px;
+    }
+
+    .select-field {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box; /* Make sure that padding and border are included in the width */
+    }
+
+    .submit-button {
+        background-color: #28a745; /* Green */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        .submit-button:hover {
+            background-color: #218838; /* Darker green */
+        }
+</style>

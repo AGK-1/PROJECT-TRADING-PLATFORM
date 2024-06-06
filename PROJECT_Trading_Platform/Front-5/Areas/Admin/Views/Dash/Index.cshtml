@@ -1,0 +1,205 @@
+﻿@model Front_5.Models.Twomodel
+@using X.PagedList.Mvc.Core;
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-9" style="border-right: 1px solid black;">
+            <h3>Products</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Photo</th>
+                        <th>Price</th>
+                        <th>Color</th>
+                        <th>Edit</th>
+                        <th>Visibility</th>
+                        <th>Ischeck false</th>
+                        <th>Ischeck true</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PagedCards)
+                    {
+                        <tr>
+                            <td>@item.name</td>
+                            <td><img src="~/assets/img/product/@item.photo1" width="100px"></td>
+                            <td>
+                                <img src="~/assets/img/product/@item.photo2" width="100px">
+                            </td>
+                            <td>@item.price</td>
+                            <td>@item.Color.color</td>
+                            @* <a href="#" onclick="confirmDelete(@item.Id)" class="btn btn-danger">Delete</a>
+                        <form id="deleteForm" asp-controller="dash" asp-action="UpdateIscheckToFalse" asp-route-id="@item.Id" method="post">
+                        <input type="button" onclick="con(@item.Id)" value="ischeck false" class="btn btn-primary" />
+                        <input type="submit" value="Sa" class="btn btn-primary" style="display:none;"/>
+                        </form>
+                            *@
+                            <td><a asp-area="Admin" asp-controller="dash" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                            <td>@item.Ischeck</td>
+                            <td>
+                                <form id="deleteForm" asp-controller="dash" asp-action="UpdateIscheckToFalse" asp-route-id="@item.Id" method="post">                
+                                    <input type="submit" value="Ischeck false" class="btn btn-primary" />
+                                </form>
+                            </td>
+                            <td>
+                                <form id="deleteFormmm" asp-controller="dash" asp-action="UpdateIscheckTotrue" asp-route-id="@item.Id" method="post">
+                                    <input type="submit" value="Ischeck true" class="btn btn-success" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                @Html.PagedListPager(Model.PagedCards, page => Url.Action("Index", new { i = page }), new PagedListRenderOptions
+                {
+               LiElementClasses = new[] { "page-item" },
+               PageClasses = new[] { "page-link" },
+               UlElementClasses = new[] { "pagination" }
+                })
+            </div>
+        </div>
+        <div class="col-2">
+            <h3>Sliders</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Slider_L)
+                    {
+                        <tr>
+                            <td><img src="~/assets/img/sliders_swipe/@item.picture" width="100px"></td>             
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Slider</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-controller="Slider" asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label for="Text2" class="form-label">Text:</label>
+                        <input type="text" id="Text2" name="text2" class="form-control" asp-for="Slider_T.text2" />
+                        <span asp-validation-for="Slider_T.text2" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="File" class="form-label">Picture:</label>
+                        <input type="file" id="File" name="file" class="form-control" asp-for="Slider_T.file" />
+                        <span asp-validation-for="Slider_T.file" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="Slider_T.Id" />
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function confirmDelete(itemId) {
+        Swal.fire({
+            title: 'Silmek istediyinizden eminsiniz?',
+            text: 'Silindikden sonra geri qaytara bilmeyeceksiz!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Beli, sil!',
+            cancelButtonText: 'Xeyr, emin deyilem!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If user confirms, redirect to the delete action URL
+                window.location.href = '/Admin/Dash/Delete/' + itemId;
+            } else {
+                // If user cancels, do nothing
+            }
+        });
+    }
+
+
+
+    function confirmDel(itemId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Once deleted, you will not be able to recover this item!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If user confirms, redirect to the delete action URL
+                window.location.href = '/Admin/Slider/Delete/' + itemId;
+            } else {
+                // If user cancels, do nothing
+            }
+        });
+    }
+
+    function con() {
+        
+            Swal.fire({
+                title: 'Ischeck false ?',
+                text: 'Sehifede gorunmeyecek!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Beli, sil!',
+                cancelButtonText: 'Xeyr!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+               document.getElementById("deleteForm").submit();
+              //  window.location.href = '/Admin/Dash/UpdateIscheckToFalse/' + itemId;
+                } else {
+                    // If user cancels, do nothing
+                }
+            });
+        
+    }
+
+
+    function conn() {
+        document.getElementById("deleteFormmm").submit();
+    }
+</script>
+
+<style>
+    .pagination {
+        margin-top: 35px;
+        font-size: 20px;
+    }
+
+        .pagination .page-item.active .page-link {
+            background-color: #222222;
+            border-color: black;
+            color:white;
+        }
+
+        .pagination .page-link {
+            color: #222222;
+            margin: 10px;
+        }
+
+            .pagination .page-link:hover {
+                color: black;
+            }
+</style>

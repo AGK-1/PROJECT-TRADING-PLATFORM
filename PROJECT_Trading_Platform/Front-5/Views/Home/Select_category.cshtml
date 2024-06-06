@@ -1,0 +1,64 @@
+﻿@model List<Sport_pro>
+
+<div class="container">
+    <div class="row" style="margin-left: -50px;">
+        <h1>Category selected</h1>
+        <div class="col-xl-2"style="margin-right:20px;">
+            <a href="https://z.cdn.ftd.agency/go?z=1369829074&amp;" target="_blank" rel="nofollow"><img src="~/assets/img/logo/aside_gif.gif" style="width:350px;height:500px;margin-left:30px;"></a>
+        </div>
+    @foreach (var product in Model)
+    {
+        
+            <div class="col-xl-2" style="margin:40px;">
+            <div class="product product-4">
+                <div class="product__thumb">
+
+                    <a asp-controller="Home" asp-action="Product_detail" asp-route-id="@product.Id">
+                        <img class="product-primary" style="width:250px;height:250px;" src="~/assets/img/product/@product.photo1" alt="product_image">
+                        <img class="product-secondary" style="width:250px;height:250px;" src="~/assets/img/product/@product.photo2" alt="product_image">
+                    </a>
+                    <!-- <div class="product__update">
+                        <a class="#">new</a>
+                    </div> -->
+                    <div class="product-info mb-10">
+                        <div class="product_category">
+                            <span>@product.Category.Name</span>
+                        </div>
+                        <div class="product_rating">
+                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                            <a href="#"><i class="fal fa-star start-color"></i></a>
+                            <a href="#"><i class="fal fa-star"></i></a>
+                            <a href="#"><i class="fal fa-star"></i></a>
+                        </div>
+                    </div>
+                    <div class="product__name">
+                        <h4><a asp-controller="Home" asp-action="Product_detail">@product.name</a></h4>
+                        <div class="pro-price">
+                            <p class="p-absoulute pr-1"><span>$@product.price</span><span></span></p>
+                            <a class="p-absoulute pr-2" href="javascript:void(0);" onclick="addto_cart(this);">add to cart</a>
+                        </div>
+                    </div>
+                    <div class="product__action">
+                        <div class="inner__action">
+                            <div class="wishlist">
+                                <a href="#"><i class="fal fa-heart"></i></a>
+                            </div>
+                            <div class="view">
+                                <a href="javascript:void(0)"><i class="fal fa-eye"></i></a>
+                            </div>
+                            <div class="layer">
+                                <a href="#">
+                                    <i class="fal fa-layer-group"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+      
+    }
+</div>
+</div>

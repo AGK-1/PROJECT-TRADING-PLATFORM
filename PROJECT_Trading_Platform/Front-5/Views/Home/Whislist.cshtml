@@ -1,0 +1,248 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+    <div class="page-layout" data-background="/assets/img/slider/shop.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-area text-center">
+                    <h2 class="page-title">Cart</h2>
+                    <div class="breadcrumb-menu">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="cart.html">cart</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area end -->
+
+<div class="f_cart_area pt-110 mb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-12">
+                <div class="cart_table">
+                    <table>
+                        <tr>
+                            <td>Product photo</td>
+                            <td>Index</td>
+                            <td>Product name</td>
+                            <td>Quantity</td>
+                            <td>Delete</td>
+
+                        </tr>
+                        <tbody>
+                            <tr class="max-width-set">
+                                <td>
+                                    <img src="~/assets/img/desc/3-500x500.jpg" alt="">
+                                </td>
+                                <td class="storage">Detail V-Neck Sweater</td>
+                                <td>
+                                    $0.00
+                                </td>
+                                <td>
+                                    <div class="viewcontent__action single_action pt-30">
+                                        <span><input type="number" placeholder="1"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    $0.00
+                                </td>
+                                <td class="width-set">
+                                    <a href="javascript:void(0)">
+                                        <i class="fal fa-times-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="design-footer">
+                                <td>
+                                    <input type="text" placeholder="Coupon Code">
+                                </td>
+                                <td><button type="submit">Apply Coupon</button></td>
+                                <td colspan="3"><a href="#">update cart</a></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12">
+                <div class="cart__acount">
+                    <h5>Cart totals</h5>
+                    <table>
+                        <tr class="first-child">
+                            <td>Delivery</td>
+                            <td>$18.00</td>
+                        </tr>
+                        <tr class="first-child lastchild">
+                            <td>Shipping</td>
+                            <td>
+                                Enter your address to view shipping options <br>
+                                Calculate shipping
+                            </td>
+                        </tr>
+                        <form asp-controller="Payment" asp-action="CreateCheckoutSession" method="post" id="checkout-form">              
+                                <tr class="first-child">
+                                    <td>Total</td>
+                                    <td id="totalik" name="amount">$0.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                              @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        <a href=""><input type="submit" value="procced to checkout"></a>
+                                    }
+                                    else
+                                    {
+                                    <a href="https://localhost:7056/Akaunt/Login#Loggino"><input type="button"value="procced to checkout"></a>
+                                    }
+                                </td>
+                                </tr>    
+                            <input type="hidden" id="amount-input" name="amount" value="">
+                        </form>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <form asp-controller="Payment" asp-action="CreateCheckoutSession" method="post">
+    <div>
+        <label for="name">Amount:</label>
+        <input type="text" id="amount" name="amount" value="" />
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit">Checkout</button>
+</form> *@
+<!-- popup area start -->
+<div class="overlay"></div>
+<div class="product-popup">
+    <div class="view-background">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5">
+                <div class="quickview">
+                    <div class="quickview__thumb">
+                        <img src="~/assets/img/quick_view/25.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7">
+                <div class="viewcontent">
+                    <div class="viewcontent__header">
+                        <h2>Brown Leather Bags</h2>
+                        <a class="view_close product-p-close" href="javascript:void(0)">
+                            <i class="fal fa-times-circle"></i>
+                        </a>
+                    </div>
+                    <div class="viewcontent__rating">
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star ratingcolor"></i>
+                        <i class="fal fa-star"></i>
+                    </div>
+                    <div class="viewcontent__price">
+                        <h4><span>$</span>99.00</h4>
+                    </div>
+                    <div class="viewcontent__stock">
+                        <h4>Available :<span> In stock</span></h4>
+                    </div>
+                    <div class="viewcontent__details">
+                        <p>
+                            Anlor sit amet, consectetur adipiscing elit. Fusce condimentum est lacus, non pretium
+                            risus lacinia vel. Fusce eget turpis orci.
+                        </p>
+                    </div>
+                    <div class="viewcontent__action">
+                        <span>Qty</span>
+                        <span><input type="number" placeholder="1"></span>
+                        <span><a href="#">add to cart</a></span>
+                        <span><i class="fal fa-heart"></i></span>
+                        <span><i class="fal fa-info-circle"></i></span>
+                    </div>
+                    <div class="viewcontent__footer">
+                        <ul>
+                            <li>Category:</li>
+                            <li>SKU:</li>
+                            <li>Brand:</li>
+                        </ul>
+                        <ul>
+                            <li>Watches</li>
+                            <li>2584-MK63</li>
+                            <li>Brenda</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var storageElement = document.querySelector(".cart_table");
+    var wordslocal = JSON.parse(localStorage.getItem('words'));
+    var existingData = localStorage.getItem('productObjects');
+    var productObjects = existingData ? JSON.parse(existingData) : [];
+    var tableHTML = `<table>
+                        <tr>
+                            <td>Product photo</td>
+                            <td>Index</td>
+                            <td>Product name</td>
+                            <td>Quantity</td>
+                            <td>Delete</td>
+                        </tr>`;
+
+    // Iterate over each object in the array and populate the table rows
+    productObjects.forEach(function (object, index) {
+        // Append each object data to the table
+        tableHTML += `<tbody>
+                        <tr class="max-width-set">
+                            <td>
+                                <img src="${object.sekil}" alt="">
+                            </td>
+                                <td class="storage"><h4>${index}</h4></td>
+                                <td class="stor">${object.ad}</td>
+
+
+                            <td class="yekun">
+                               <span>${object.qiymet}</span>;
+                            </td>
+                            <td class="width-set">
+                                <a href="javascript:void(0)">
+                                    <i onclick="getH4Text(this);" class="fal fa-times-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>`;
+    });
+
+    // Close the table tag
+    tableHTML += `</table>`;
+
+    // Set the inner HTML of the storageElement to be the table HTML
+    storageElement.innerHTML = tableHTML;
+   
+    window.onload = function () {
+        mikol();
+    };
+
+
+    document.getElementById('checkout-form').addEventListener('submit', function (event) {
+        // Get the amount from the HTML element
+        let amountText = document.getElementById('totalik').innerText;
+        let amount = parseFloat(amountText.replace('$', ''));
+
+        document.getElementById('amount-input').value = amount * 100; 
+    });
+</script>
+<script>
+   
+</script>

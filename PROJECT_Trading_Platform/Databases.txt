@@ -1,0 +1,6 @@
+public DbSet<Slider> Sliders { get; set; }
+
+public DbSet<Sport_pro> Cards { get; set; }
+
+public DbSet<state> States { get; set; }
+

@@ -1,0 +1,132 @@
+﻿@model Category
+<h1>Category</h1>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        padding:20px;
+    }
+</style>
+@* <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+    Add new category
+</button> *@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>IsCheck</th>
+            <th>Edit</th>
+        </tr>
+@* <button onclick="fetchDataFromServer()">Fetch Data</button> *@
+     
+@foreach (var item in ViewBag.Categories)
+{
+@* <tr>
+     <td><a asp-area="admin" asp-controller="dash"  asp-route-id="@item.Id">@item.Name</a></td>
+     <td>@item.Id</td>
+     <td><input type="checkbox" asp-action="UpdateCategory(3)" class="category-checkbox" data-id="@item.Id" @(item.ischeck ? "checked" : "")></td>
+     <td><a asp-route-id="@item.Id" class="edit-link" onclick="ajaxx(@item.Id,`@item.Name`)" asp-action="Edit_cat" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</a></td>
+</tr>  *@
+            <tr>
+                <td><a asp-area="admin" asp-controller="dash" asp-route-id="@item.Id">@item.Name</a></td>
+                <td>@item.Id</td>
+                <td>
+                    <input type="checkbox" class="category-checkbox" data-id="@item.Id" @(item.ischeck ? "checked" : "") onchange="updateCategory(@item.Id, this.checked)">
+                </td>
+                <td>
+                    <a asp-route-id="@item.Id" class="edit-link" onclick="ajaxx(@item.Id, `@item.Name`)" asp-action="Edit_cat" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</a>
+                </td>
+            </tr>
+}
+</table>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-area="admin" asp-controller="dash" asp-action="Addtocategory" enctype="multipart/form-data">
+                    <label>Add category name:</label>
+                    <input class="form-control border border-secondary rounded" type="text" id="category" asp-for="Name"><br><br>
+                    <input type="checkbox" style="width:20px;height:20px;" asp-for="ischeck" value="true" /><br /><br />
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-area="admin" asp-controller="dash" asp-action="Edit_category5" enctype="multipart/form-data">
+                   <input asp-for="Id" type="text" id="categoryId" hidden><br>
+                    <label  data-binding="Customer first name">Edit Category</label><br>
+                    <input asp-for="Name" type="text" id="editCategoryName" class="form-control border border-secondary rounded"><br><br>
+                    <input type="checkbox" style="width:20px;height:20px;" asp-for="ischeck" value="true" /><br /><br />
+                    <button type="submit" class="btn btn-primary">Change category</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function updateCategory(checkbox) {
+        var categoryId = checkbox.getAttribute('data-id');
+        var isChecked = checkbox.checked;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/admin/dash/UpdateCategory', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log('Update successful' + categoryId + isChecked);
+                } else {
+                    console.error('Update failed:', xhr.status);
+                }
+            }
+        };
+        xhr.send(JSON.stringify({ id: categoryId,isChecked}));
+    }
+</script>
+<script>
+    function ajaxx(data,mata) {
+       // alert('Value of luk: ' + data+ "  "+mata);
+        document.getElementById('categoryId').value = data;
+        document.getElementById('editCategoryName').value = mata;
+    };
+    function updateCategory(id, isChecked) {
+        fetch('/Category/UpdateCategory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() // Include Anti-Forgery Token if needed
+            },
+            body: JSON.stringify({ id: id, isCheck: isChecked })
+        })
+            .then(response => response.ok ? console.log('Update successful') : console.error('Update failed'))
+            .catch(error => console.error('Error:', error));
+    }
+   
+</script>
+
+
+
+
